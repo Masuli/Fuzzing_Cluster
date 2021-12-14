@@ -104,7 +104,7 @@ def synthesize(ip_addrs, username, password):
     get_tars(ip_addrs, username, password)
     create_and_send_combined_corpus(ip_addrs, username, password)    
     get_fuzzer_stats(ip_addrs, username, password)
-
+    
 def create_containers(client, containers, ip_addrs, count):
     print("Creating {} containers.".format(count))
     for i in range(count):
@@ -153,6 +153,7 @@ def run(count, username, password):
     
     create_containers(client, containers, ip_addrs, count)
     fuzz(ip_addrs, username, password)
+    get_fuzzer_stats(ip_addrs, username, password)
     cleanup(client, containers)
 
 if __name__ == "__main__":
